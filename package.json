@@ -1,0 +1,21 @@
+{
+  "name": "tailwind-static-html",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "CC0",
+  "description": "",
+  "scripts": {
+    "build-tailwind": "npx tailwindcss -i ./src/css/tailwind-input.css -o ./src/css/tailwind.css",
+    "build-tailwind-watch": "npx tailwindcss -i ./src/css/tailwind-input.css -o ./src/css/tailwind.css --watch",
+    "copy-fontawesome": "cp -R ./node_modules/@fortawesome/fontawesome-free/webfonts/ ./src/webfonts/ ; cp ./node_modules/@fortawesome/fontawesome-free/css/all.min.css ./src/css/fontawesome.css",
+    "build": "npm run build-tailwind ; npm run copy-fontawesome ; cp -R ./src/ ./build/",
+    "check": "[ -f ./src/css/fontawesome.css ] || npm run copy-fontawesome ; [ -f ./src/css/tailwind.css ] || npm run build-tailwind ",
+    "start": "npm run check; node index.js"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "tailwindcss": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
