@@ -1,0 +1,1 @@
+# tailwind-static-html-template
